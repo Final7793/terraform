@@ -1,9 +1,12 @@
+provider "aws" {
+  region = var.aws_region
+}
 
 resource "aws_instance" "example" {
-  ami           = "ami-01e82af4e524a0aa3"  # Specify the AMI ID for your EC2 instance
-  instance_type = var.instance_type              # Specify the instance type (e.g., t2.micro, t3.small)
+  ami           = "ami-01e82af4e524a0aa3"
+  instance_type = var.instance_type
 
   tags = {
-    Name = "example-instance"  # Specify a name for your instance
+    Name = var.instance_name
   }
 }
